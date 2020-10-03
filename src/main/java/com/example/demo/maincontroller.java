@@ -30,8 +30,6 @@ public class maincontroller {
         return fechaDate;
     }
 	
-
-	
 	
 	@GetMapping
 	public Empleado getEmpleado(@RequestParam (value="nombre") String NombreUrl,@RequestParam (value="apellido") String ApellidoUrl,

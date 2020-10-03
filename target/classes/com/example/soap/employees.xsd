@@ -1,0 +1,124 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.example.org/employees"
+	targetNamespace = "http://www.example.org/employees"
+	elementFormDefault="qualified">
+	
+	<xs:element name="getEmployeeByDocumentoRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="numeroDeDocumento" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="getEmployeeByDocumentoResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="employeeType" type="tns:employeeType" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="employeeType">
+		<xs:sequence>
+			<xs:element name="nombres" type="xs:string"/>
+			<xs:element name="apellidos" type="xs:string"/>
+			<xs:element name="tipoDeDocumento" type="xs:string"/>
+			<xs:element name="numeroDeDocumento" type="xs:string"/>
+			<xs:element name="fechaDeNacimiento" type="xs:date"/>
+			<xs:element name="fechaDeVinculacion" type="xs:date"/>
+			<xs:element name="cargo" type="xs:string"/>
+			<xs:element name="salario" type="xs:decimal"/>
+			<xs:element name="tiempoVinculacion" type="xs:string"/>
+			<xs:element name="edad" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="getAllEmployeesRequest">
+		<xs:complexType/>
+	</xs:element>
+	
+	<xs:element name="getAllEmployeesResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="employeeType" type="tns:employeeType" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="serviceStatus">
+		<xs:sequence>
+			<xs:element name="statusCode" type="xs:string"/>
+			<xs:element name="message" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="addEmployeeRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="nombres" type="xs:string"/>
+				<xs:element name="apellidos" type="xs:string"/>
+				<xs:element name="tipoDeDocumento" type="xs:string"/>
+				<xs:element name="numeroDeDocumento" type="xs:string"/>
+				<xs:element name="fechaDeNacimiento" type="xs:date"/>
+				<xs:element name="fechaDeVinculacion" type="xs:date"/>
+				<xs:element name="cargo" type="xs:string"/>
+				<xs:element name="salario" type="xs:decimal"/>
+				<xs:element name="tiempoVinculacion" type="xs:string"/>
+				<xs:element name="edad" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="addEmployeeResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="serviceStatus" type="tns:serviceStatus"/>
+				<xs:element name="employeeType" type="tns:employeeType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="updateEmployeeRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="nombres" type="xs:string"/>
+				<xs:element name="apellidos" type="xs:string"/>
+				<xs:element name="tipoDeDocumento" type="xs:string"/>
+				<xs:element name="numeroDeDocumento" type="xs:string"/>
+				<xs:element name="fechaDeNacimiento" type="xs:date"/>
+				<xs:element name="fechaDeVinculacion" type="xs:date"/>
+				<xs:element name="cargo" type="xs:string"/>
+				<xs:element name="salario" type="xs:decimal"/>
+				<xs:element name="tiempoVinculacion" type="xs:string"/>
+				<xs:element name="edad" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:element name="updateEmployeeResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="serviceStatus" type="tns:serviceStatus"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+	<xs:element name="deleteEmployeeRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="numeroDeDocumento" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+		<xs:element name="deleteEmployeeResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="serviceStatus" type="tns:serviceStatus"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+</xs:schema>
